@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente IA — Psicología Clínica</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <h1>🧠 Asistente IA</h1>
+            <p>Psicología Clínica — Transcripción de Sesiones</p>
+        </header>
+
+        <!-- CONTROLES DE SESIÓN -->
+        <section class="card" id="seccion-controles">
+            <h2>Configurar sesión</h2>
+
+            <div class="modo-selector">
+                <label class="modo-opcion">
+                    <input type="radio" name="modo" value="presencial" checked>
+                    <span>🏥 Presencial</span>
+                    <small>Un micrófono — la IA separa las voces</small>
+                </label>
+                <label class="modo-opcion">
+                    <input type="radio" name="modo" value="virtual">
+                    <span>💻 Virtual</span>
+                    <small>Micrófono + audio del sistema (Zoom, Meet...)</small>
+                </label>
+            </div>
+
+            <div class="botones">
+                <button id="btn-iniciar" class="btn-primario" onclick="iniciarSesion()">
+                    🎙️ Iniciar Grabación
+                </button>
+                <button id="btn-detener" class="btn-peligro" onclick="detenerSesion()" disabled>
+                    ⏹️ Detener
+                </button>
+                
+                <span style="color: #94a3b8; margin: 0 10px; display: inline-flex; align-items: center;">o</span>
+                
+                <input type="file" id="input-archivo" accept="audio/*" style="display: none" onchange="subirArchivo(this)">
+                <button id="btn-archivo" class="btn-secundario" onclick="document.getElementById('input-archivo').click()">
+                    📁 Subir Audio
+                </button>
+            </div>
+
+            <!-- Indicador de estado -->
+            <div id="estado" class="estado estado-idle">
+                <span id="estado-icono">⚪</span>
+                <span id="estado-texto">Listo para iniciar</span>
+            </div>
+        </section>
+
+        <!-- TRANSCRIPCIÓN EN VIVO -->
+        <section class="card" id="seccion-transcripcion">
+            <div class="transcripcion-header">
+                <h2>Transcripción en vivo</h2>
+                <button class="btn-secundario btn-small" onclick="limpiarTranscripcion()">
+                    🗑️ Limpiar
+                </button>
+            </div>
+            <div id="transcripcion-contenedor">
+                <p class="placeholder-texto">
+                    La transcripción de la sesión aparecerá aquí en tiempo real...
+                </p>
+            </div>
+        </section>
+
+        <!-- RESULTADO FINAL -->
+        <section class="card" id="seccion-resultado" style="display:none">
+            <h2>✅ Sesión completada</h2>
+            <p>Sesión <strong id="resultado-id"></strong> transcrita correctamente.</p>
+            <div class="botones">
+                <button class="btn-secundario" onclick="verTranscripcionCompleta()">
+                    📄 Ver transcripción completa
+                </button>
+                <!-- En fases futuras: botón de descarga del documento Word -->
+                <button class="btn-primario" id="btn-generar-doc" onclick="generarDocumento()">
+                    📝 Generar Historia Clínica (.docx)
+                </button>
+            </div>
+        </section>
+
+    </div><!-- /container -->
+
+    <!-- Modal para transcripción completa -->
+    <div id="modal" class="modal" onclick="cerrarModal()">
+        <div class="modal-contenido" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>Transcripción completa de la sesión</h3>
+                <button onclick="cerrarModal()" class="btn-cerrar">✕</button>
+            </div>
+            <pre id="modal-texto"></pre>
+        </div>
+    </div>
+
+    <script src="/static/js/audio.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

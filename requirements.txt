@@ -1,0 +1,41 @@
+# ============================================
+# Asistente IA - Psicología Clínica
+# Dependencias del proyecto
+# ============================================
+
+# --- Framework Web ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+
+# --- Variables de entorno ---
+python-dotenv>=1.0.0
+
+# --- WebSockets ---
+websockets>=12.0
+
+# --- HTTP async (para enviar archivos de audio a Deepgram) ---
+httpx>=0.27.0
+
+# --- Speech-to-Text (Deepgram) ---
+deepgram-sdk>=3.5.0
+
+# --- LLM (Gemini AI) ---
+google-genai>=0.5.0
+pydantic>=2.0.0>=1.0.0
+
+# --- Generación de documentos Word ---
+docxtpl>=0.18.0
+
+# --- Base de datos SQLite async ---
+aiosqlite>=0.20.0
+
+# --- Validación de datos ---
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# --- Audio (grabación multi-micrófono presencial) ---
+sounddevice>=0.5.0
+numpy>=1.26.0
+
+# --- Manejo de archivos async ---
+aiofiles>=24.0.0

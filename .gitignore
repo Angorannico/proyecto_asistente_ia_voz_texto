@@ -1,0 +1,33 @@
+# Entorno virtual
+venv/
+.venv/
+
+# Variables de entorno (contiene API keys)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentos generados por la aplicación
+output/*.docx
+output/*.pdf
+
+# Base de datos local
+*.db
+*.sqlite3
