@@ -1,33 +1,46 @@
-# Entorno virtual
+# ==========================================
+# SEGURIDAD Y VARIABLES DE ENTORNO
+# ==========================================
+.env
+.env.*
+*.env
+secret/
+
+# ==========================================
+# ENTORNOS VIRTUALES Y DEPENDENCIAS
+# ==========================================
 venv/
 .venv/
+env/
+ENV/
 
-# Variables de entorno (contiene API keys)
-.env
-
-# Python
+# ==========================================
+# CACHÉ Y ARCHIVOS DE PYTHON
+# ==========================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-*.egg-info/
-dist/
-build/
+.pytest_cache/
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Documentos generados por la aplicación
-output/*.docx
-output/*.pdf
-
-# Base de datos local
+# ==========================================
+# BASES DE DATOS LOCALES
+# ==========================================
 *.db
 *.sqlite3
+
+# ==========================================
+# ARCHIVOS GENERADOS POR LA APP
+# ==========================================
+output/*.docx
+output/*.pdf
+!output/.gitkeep
+
+# ==========================================
+# IDEs Y SISTEMA OPERATIVO
+# ==========================================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
