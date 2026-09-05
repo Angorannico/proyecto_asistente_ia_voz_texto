@@ -96,3 +96,5 @@ function detenerCaptura() {
 
     console.log('🔇 Captura de audio detenida');
 }
+
+//Prueba de captacion
